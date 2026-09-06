@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Krishak | Smart Procurement System</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f8f3;
+    color:#263238;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#1b5e20;
+    color:white;
+    padding:15px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav button{
+    background:#ffffff;
+    color:#1b5e20;
+    border:none;
+    padding:9px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    padding:60px 8%;
+    text-align:center;
+    background:linear-gradient(135deg,#e8f5e9,#ffffff);
+}
+
+.hero h1{
+    font-size:42px;
+    color:#1b5e20;
+}
+
+.hero p{
+    margin:15px auto;
+    max-width:650px;
+    color:#555;
+    line-height:1.6;
+}
+
+.hero button{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* SECTION */
+
+section{
+    padding:55px 8%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    color:#1b5e20;
+    font-size:30px;
+}
+
+.title p{
+    color:#666;
+    margin-top:8px;
+}
+
+/* CENTER CARDS */
+
+.centers{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#1b5e20;
+    margin-bottom:15px;
+}
+
+.card p{
+    margin:10px 0;
+}
+
+.card button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    background:#2e7d32;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* BOOKING */
+
+.booking{
+    background:#e8f5e9;
+}
+
+.form-box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+}
+
+input,select{
+    width:100%;
+    padding:13px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.form-box button{
+    width:100%;
+    padding:14px;
+    background:#1b5e20;
+    color:white;
+    border:none;
+    border-radius:7px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* DEMO STATUS */
+
+.demo{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.status{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.step{
+    flex:1;
+    min-width:120px;
+    text-align:center;
+}
+
+.circle{
+    width:55px;
+    height:55px;
+    margin:auto;
+    border-radius:50%;
+    background:#ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.done .circle{
+    background:#2e7d32;
+    color:white;
+}
+
+.active .circle{
+    background:#f9a825;
+    color:white;
+}
+
+.step p{
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* QUEUE */
+
+.queue-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.queue-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.queue-card h1{
+    color:#1b5e20;
+    font-size:45px;
+}
+
+/* VERIFICATION */
+
+.verify-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.verify-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+/* BILL */
+
+.bill{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.1);
+}
+
+.bill-header{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:2px solid #dcedc8;
+    padding-bottom:15px;
+}
+
+table{
+    width:100%;
+    margin-top:25px;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:13px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#e8f5e9;
+}
+
+.total{
+    text-align:right;
+    margin-top:20px;
+}
+
+.total h2{
+    color:#1b5e20;
+}
+
+/* PAYMENT */
+
+.payment{
+    background:#e8f5e9;
+}
+
+.payment-card{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.amount{
+    font-size:45px;
+    color:#1b5e20;
+    margin:15px;
+}
+
+.payment-status{
+    display:inline-block;
+    background:#fff3cd;
+    padding:10px 20px;
+    border-radius:20px;
+    color:#856404;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .bill-header{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+🌾 Krishak
+</div>
+
+<div>
+SIH26032
+</div>
+
+<button onclick="alert('Language options: English | తెలుగు | हिन्दी')">
+🌐 Language
+</button>
+
+</nav>
+
+
+<!-- HOME -->
+
+<div class="hero">
+
+<h1>Smart Procurement Center<br>Management System 🌾</h1>
+
+<p>
+A Digital Solution for Transparent, Efficient and Farmer-Friendly Crop Procurement.
+</p>
+
+<button onclick="document.getElementById('centers').scrollIntoView()">
+Find Procurement Center
+</button>
+
+</div>
+
+
+<!-- PROCUREMENT CENTERS -->
+
+<section id="centers">
+
+<div class="title">
+
+<h2>🏢 Available Procurement Centers</h2>
+
+<p>Check center information before travelling.</p>
+
+</div>
+
+<div class="centers">
+
+<div class="card">
+
+<h3>🏢 Sri Lakshmi Rice Mill</h3>
+
+<p>📍 East Godavari</p>
+
+<p>🌾 Crop: Paddy</p>
+
+<p>📦 Storage: 65% Available</p>
+
+<p>💰 Price: ₹2300 / Quintal</p>
+
+<p>📜 Government Authorized ✓</p>
+
+<p>👥 Current Queue: 12 Farmers</p>
+
+<button onclick="selectMill('Sri Lakshmi Rice Mill')">
+Book Slot
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>🏢 Jai Kisan Procurement Center</h3>
+
+<p>📍 Kakinada</p>
+
+<p>🌾 Crop: Paddy</p>
+
+<p>📦 Storage: 40% Available</p>
+
+<p>💰 Price: ₹2300 / Quintal</p>
+
+<p>📜 Government Authorized ✓</p>
+
+<p>👥 Current Queue: 8 Farmers</p>
+
+<button onclick="selectMill('Jai Kisan Procurement Center')">
+Book Slot
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SLOT BOOKING -->
+
+<section class="booking" id="booking">
+
+<div class="title">
+
+<h2>🎟️ Book Procurement Slot</h2>
+
+<p>Avoid long waiting and book your preferred slot.</p>
+
+</div>
+
+
+<div class="form-box">
+
+<input type="text" id="farmerName"
+placeholder="👨‍🌾 Farmer Name">
+
+<input type="tel"
+placeholder="📱 Mobile Number">
+
+<select id="mill">
+
+<option value="">🏢 Select Procurement Center</option>
+
+<option>Sri Lakshmi Rice Mill</option>
+
+<option>Jai Kisan Procurement Center</option>
+
+</select>
+
+
+<select>
+
+<option>🌾 Select Crop</option>
+
+<option>Paddy</option>
+
+<option>Maize</option>
+
+<option>Wheat</option>
+
+</select>
+
+
+<input type="number"
+placeholder="📦 Quantity in Quintals">
+
+
+<input type="date">
+
+
+<select>
+
+<option>⏰ Select Preferred Slot</option>
+
+<option>09:00 AM - 11:00 AM</option>
+
+<option>11:00 AM - 01:00 PM</option>
+
+<option>02:00 PM - 04:00 PM</option>
+
+</select>
+
+
+<button onclick="bookSlot()">
+
+🎟️ Request Slot
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- TRACKING -->
+
+<section id="tracking">
+
+<div class="title">
+
+<h2>📍 Procurement Status</h2>
+
+<p>Track your journey from booking to payment.</p>
+
+</div>
+
+
+<div class="demo">
+
+<h3>🎫 Token: <span id="token">MQ-1001</span></h3>
+
+<br>
+
+<div class="status">
+
+<div class="step done">
+
+<div class="circle">✓</div>
+
+<p>Slot Requested</p>
+
+</div>
+
+
+<div class="step done">
+
+<div class="circle">✓</div>
+
+<p>Owner Accepted</p>
+
+</div>
+
+
+<div class="step active">
+
+<div class="circle">3</div>
+
+<p>Queue</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="circle">4</div>
+
+<p>Verification</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="circle">5</div>
+
+<p>Payment</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUEUE -->
+
+<section>
+
+<div class="title">
+
+<h2>👥 Live Queue Status</h2>
+
+<p>Know your waiting time before arriving.</p>
+
+</div>
+
+
+<div class="queue-grid">
+
+<div class="queue-card">
+
+<p>Your Position</p>
+
+<h1 id="position">05</h1>
+
+<p>Farmers Ahead: 4</p>
+
+</div>
+
+
+<div class="queue-card">
+
+<p>Estimated Waiting Time</p>
+
+<h1 id="waiting">20</h1>
+
+<p>Minutes</p>
+
+</div>
+
+
+<div class="queue-card">
+
+<p>Currently Serving</p>
+
+<h1>MQ-0996</h1>
+
+<p>Live Update</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VERIFICATION -->
+
+<section>
+
+<div class="title">
+
+<h2>🔍 Verification Updates</h2>
+
+<p>Transparent procurement verification process.</p>
+
+</div>
+
+
+<div class="verify-grid">
+
+<div class="verify-card">
+
+<h3>👨‍🌾 Farmer Details</h3>
+
+<p>✅ Verified</p>
+
+</div>
+
+
+<div class="verify-card">
+
+<h3>📄 Documents</h3>
+
+<p>✅ Verified</p>
+
+</div>
+
+
+<div class="verify-card">
+
+<h3>🌾 Crop Quality</h3>
+
+<p>⏳ In Progress</p>
+
+</div>
+
+
+<div class="verify-card">
+
+<h3>📦 Procurement</h3>
+
+<p>⏳ Pending</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BILL -->
+
+<section>
+
+<div class="title">
+
+<h2>📄 Digital Procurement Bill</h2>
+
+</div>
+
+
+<div class="bill">
+
+<div class="bill-header">
+
+<div>
+
+<h2>🌾 Krishak Procurement</h2>
+
+<p>Smart Procurement Center Management System</p>
+
+</div>
+
+<div>
+
+<p>Bill No: BILL-2026-1001</p>
+
+<p>Token: <span id="billToken">MQ-1001</span></p>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+
+<th>Crop</th>
+
+<th>Quantity</th>
+
+<th>Rate</th>
+
+<th>Total</th>
+
+</tr>
+
+
+<tr>
+
+<td>Paddy 🌾</td>
+
+<td>50 Quintals</td>
+
+<td>₹2300</td>
+
+<td>₹1,15,000</td>
+
+</tr>
+
+</table>
+
+
+<div class="total">
+
+<p>Total Procurement Amount</p>
+
+<h2>₹1,15,000</h2>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="payment">
+
+<div class="title">
+
+<h2>💰 Payment Status</h2>
+
+<p>Track your payment after procurement.</p>
+
+</div>
+
+
+<div class="payment-card">
+
+<h3>Total Amount</h3>
+
+<div class="amount">
+₹1,15,000
+</div>
+
+<div class="payment-status" id="paymentStatus">
+
+⏳ Payment Processing
+
+</div>
+
+<br><br>
+
+<button onclick="completePayment()">
+
+Check Payment Status
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>🌾 Krishak Innovations</h2>
+
+<p>Simple Steps • Smart Solution • Better Farming</p>
+
+<br>
+
+<p>Smart India Hackathon 2026 | SIH26032</p>
+
+</footer>
+
+
+<script>
+
+/* SELECT MILL */
+
+function selectMill(millName){
+
+document.getElementById("mill").value=millName;
+
+document.getElementById("booking").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* BOOK SLOT */
+
+function bookSlot(){
+
+let name=document.getElementById("farmerName").value;
+
+let mill=document.getElementById("mill").value;
+
+
+if(name=="" || mill==""){
+
+alert("Please enter Farmer Name and select Procurement Center.");
+
+return;
+
+}
+
+
+let randomToken="MQ-"+Math.floor(1000+Math.random()*9000);
+
+
+document.getElementById("token").innerText=randomToken;
+
+document.getElementById("billToken").innerText=randomToken;
+
+
+alert(
+"🌾 Slot Request Submitted Successfully!\n\n"+
+"Farmer: "+name+"\n"+
+"Center: "+mill+"\n\n"+
+"🎟️ Digital Token: "+randomToken+"\n\n"+
+"Status: Waiting for Owner Acceptance."
+);
+
+
+document.getElementById("tracking").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* LIVE QUEUE DEMO */
+
+let queuePosition=5;
+
+
+setInterval(function(){
+
+if(queuePosition>1){
+
+queuePosition--;
+
+document.getElementById("position").innerText=
+"0"+queuePosition;
+
+document.getElementById("waiting").innerText=
+queuePosition*5;
+
+}
+
+},15000);
+
+
+/* PAYMENT */
+
+function completePayment(){
+
+document.getElementById("paymentStatus").innerHTML=
+"✅ Payment Credited Successfully";
+
+alert(
+"💰 Payment Status Updated!\n\n"+
+"Amount: ₹1,15,000\n"+
+"Status: Successfully Credited"
+);
+
+}
+
+</script>
+
+</body>
+</html>
